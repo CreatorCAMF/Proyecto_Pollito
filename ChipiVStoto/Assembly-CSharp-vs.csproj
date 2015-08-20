@@ -51,14 +51,12 @@
      <Compile Include="Assets\Scripts\BossFace.cs" />
      <Compile Include="Assets\Scripts\BossHand.cs" />
      <Compile Include="Assets\Scripts\BossHandAnimator.cs" />
-     <Compile Include="Assets\Scripts\BossHandAnimator2.cs" />
      <Compile Include="Assets\Scripts\BossParametersScript.cs" />
      <Compile Include="Assets\Scripts\BossStarsAnimator.cs" />
      <Compile Include="Assets\Scripts\BossTail.cs" />
      <Compile Include="Assets\Scripts\CatBar.cs" />
      <Compile Include="Assets\Scripts\CatCollider.cs" />
      <Compile Include="Assets\Scripts\CatHand.cs" />
-     <Compile Include="Assets\Scripts\CatHandMovement2.cs" />
      <Compile Include="Assets\Scripts\CatScript.cs" />
      <Compile Include="Assets\Scripts\FCScript.cs" />
      <Compile Include="Assets\Scripts\FillAmountArrow.cs" />

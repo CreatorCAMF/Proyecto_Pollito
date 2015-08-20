@@ -8,11 +8,18 @@ public class BossParametersScript : MonoBehaviour {
 	public float Max_life;
 	public float CurrentLife;
 	public int diffic = 1;
+	GameObject chickenLauncher;
 	BossStarsAnimator bsa;
+	LauncherScript ls;
+	public float SaveWaitTime = 3.0f;
 	
 	void Start () {
+		chickenLauncher = GameObject.FindWithTag("ChickenLauncher");
+		if(chickenLauncher!= null){
+			ls = chickenLauncher.GetComponent<LauncherScript>();
+		}
 		diffic = PlayerPrefs.GetInt ("Dificultad");
-        if(diffic<1)
+        if(diffic < 1)
         {
             diffic = 1;
         }
@@ -25,6 +32,7 @@ public class BossParametersScript : MonoBehaviour {
 	void Update () {
 		if(CurrentLife <= 0){
 			isAlive = false;
+			StartCoroutine("SaveChickens");
 		}
 	}
 	
@@ -34,6 +42,17 @@ public class BossParametersScript : MonoBehaviour {
 		}else{
 			CurrentLife = 0;
 			bsa.SendMessage("ActivateStars");
+		}
+	}
+	
+	IEnumerator SaveChickens(){
+	yield return new WaitForSeconds(SaveWaitTime);
+		if(ls!= null){
+			int chicksToSave = ls.chicksLeft;
+			PlayerPrefs.SetInt("PollosSalvados",chicksToSave);
+			PlayerPrefs.Save();
+			/*To DO: que el gato le avise a el manager que ya esta muerto y la escena debe proseguir*/
+			//Debug.Log("Pollos Salvados:"+ chicksToSave);
 		}
 	}
 	
